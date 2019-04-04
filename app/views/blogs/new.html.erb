@@ -11,6 +11,10 @@
     <%= form.label :内容%><br>
     <%= form.text_field :content%><br>
 </div>
+<div class="blog_image">
+    <%= form.label :image %>
+    <%= form.file_field:image %>
+</div>
 <%= form.submit "記録する" %><br>
 <%= link_to "みんなの投稿を見る！", blogs_path %>
 

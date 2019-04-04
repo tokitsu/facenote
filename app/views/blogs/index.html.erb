@@ -7,10 +7,14 @@
 <tr>
 <td><%= blog.title %></td>
 <td><%= blog.content %></td>
+<td><%= image_tag blog.image %></td>
+                       <% if blog.user_id == session.id %>
 <td><%= link_to "チェック",blog_path(blog.id)%></td>
 <td><%= link_to "編集",edit_blog_path(blog.id) %></td>
 <td><%= link_to "削除",blog_path(blog.id), method: :delete %></td><br>
 </tr>
+                      <% else %>
+                      <% end %>
 <% end %><br>
 <%= link_to "新しく投稿する", new_blog_path %><br>
 <%= link_to "ホームに戻る", user_path(current_user.id) %><br>
