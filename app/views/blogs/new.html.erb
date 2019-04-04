@@ -1,0 +1,17 @@
+<h2>投稿を作成する！</h2>
+
+<%= form_with(model: @blog, local: true) do |form| %>
+
+<div class="blog_title">
+    <%= form.label :タイトル%><br>
+    <%= form.text_field :title%><br>
+    
+</div>
+<div class="blog_content">
+    <%= form.label :内容%><br>
+    <%= form.text_field :content%><br>
+</div>
+<%= form.submit "記録する" %><br>
+<%= link_to "みんなの投稿を見る！", blogs_path %>
+
+<% end %>

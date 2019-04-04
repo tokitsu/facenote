@@ -1,0 +1,9 @@
+<h2>投稿記事</h2>
+
+<h3>タイトル</h3>
+<%= @blog.title%><br>
+<h3>内容</h3>
+<%= @blog.content%><br>
+
+<%= link_to "編集する",edit_blog_path%><br>
+<%= link_to "一覧に戻る", blogs_path%>
