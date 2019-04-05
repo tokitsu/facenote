@@ -7,17 +7,23 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
   <body>
+    <header class="header">
+    <ul class="headerline">
+    <h2 class ="headername">FACENOTE</h2>
     <% if logged_in? %>
-    <%= link_to "プロフィールを見る", user_path(current_user.id) %>
-    <%= link_to "ログアウトする", session_path(current_user.id), method: :delete%>
+    <li><%= link_to "プロフィールを見る", user_path(current_user.id) %></li>
+    <li><%= link_to "ログアウトする", session_path(current_user.id), method: :delete%></li>
     <% else %>
-    <%= link_to "新規登録する", new_user_path%>
-    <%= link_to "ログインする", new_session_path%>
-    
+    <li><%= link_to "新規登録する", new_user_path%></li>
+    <li><%= link_to "ログインする", new_session_path%></li>
+    </ul>
     <% end %>
-    
+    </header>
+    <div class="middle">
     <%= yield %>
+    <div>
+      <footer class="foot">
+      </footer>
   </body>
 </html>

@@ -5,6 +5,7 @@
 <h3>内容</h3>
 <%= @blog.content%><br>
 <h3>イメージ</h3>
-<%= image_tag @blog.image.url %>
-<%= link_to "編集する",edit_blog_path%><br>
+<%= image_tag @blog.image.url %><br>
+
+<%= link_to "編集する", edit_blog_path%><br>
 <%= link_to "一覧に戻る", blogs_path%>

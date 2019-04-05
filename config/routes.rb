@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   get 'sessions/new'
+  get 'sessions/top'
     resources :sessions, only:[:new,:create,:destroy]
     resources :users
     resources :blogs
