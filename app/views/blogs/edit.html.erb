@@ -1,14 +1,17 @@
-<h3>投稿を編集する</h3>
-
-<%= form_with(model: @blog,local: true) do |form| %>
-
-<%= form.label :タイトル %><br>
-<%= form.text_field :title %><br>
-
-<%= form.label :内容 %><br>
-<%= form.text_field :content %><br>
-
-<%= form.submit "投稿する"%><br>
-
+<div class="panel panel-default">
+  <div class="panel-heading">
+<h6 class="panel-title">投稿を編集する！</h6>
+  </div>
+  <div class="panel-body">
+<%= form_with(model: @blog, local: true) do |form| %>
+<%= form.label :タイトル%><br>
+<%= form.text_field :title%><br>
+<%= form.label :内容%><br>
+<%= form.text_field :content%><br>
+<%= form.label :画像 %>
+<%= form.file_field:image_cache %>
+<%= form.submit "投稿する" %><br>
 <% end %>
-<%= link_to "投稿一覧に戻る", blogs_path %>
+  </div>
+</div>
+<h4><%= link_to "　みんなの投稿に戻る！", blogs_path %></h4>

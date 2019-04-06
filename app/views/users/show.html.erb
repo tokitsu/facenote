@@ -1,13 +1,15 @@
-
-
-<h3><%= @user.name %>のページにログインしています。</h3>
+<div class="panel panel-default">
+  <div class="panel-heading">
+<h3 class="panel-title"><%= @user.name %>のページにログインしています。</h3>
+ </div>
+ <div class="panel-body">
 <p>メールアドレス<%= @user.email %></p>
 
 <h3>さて何する？？</h3>
-
 <%= link_to "投稿する！",new_blog_path %><br>
 <%= link_to "みんなの投稿を見る！", blogs_path %><br>
-
+ </div>
+</div>
 
 
 

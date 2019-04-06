@@ -8,22 +8,23 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
-    <header class="header">
-    <ul class="headerline">
-    <h2 class ="headername">FACENOTE</h2>
+    <wrapper>
+    <header>
+    <ul>
+    <li class="headername">FACENOTE</li>
     <% if logged_in? %>
-    <li><%= link_to "プロフィールを見る", user_path(current_user.id) %></li>
-    <li><%= link_to "ログアウトする", session_path(current_user.id), method: :delete%></li>
+    <li class="headerword"><%= link_to "プロフィールを見る", user_path(current_user.id) %></li>
+    <li class="headerword"><%= link_to "ログアウトする", session_path(current_user.id), method: :delete%></li>
     <% else %>
-    <li><%= link_to "新規登録する", new_user_path%></li>
-    <li><%= link_to "ログインする", new_session_path%></li>
+    <li class="headerword"><%= link_to "新規登録する", new_user_path%></li>
+    <li class="headerword"><%= link_to "ログインする", new_session_path%></li>
     </ul>
     <% end %>
     </header>
-    <div class="middle">
     <%= yield %>
-    <div>
-      <footer class="foot">
+      <footer>
+        <h18>FACENOTE.INC</h18>
       </footer>
+      </wrapper>
   </body>
 </html>

@@ -1,0 +1,18 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+<h6 class="panel-title">以下の内容で、送信する。</h6>
+  </div>
+  <div class="panel-body">
+<%= form_with(model: @blog, url: blogs_path, local: true) do |form| %>
+  <%= form.hidden_field :title %>
+  <%= form.hidden_field :content %>
+  <%= form.hidden_field :image_cache %>
+  <p>タイトル:<%= @blog.title %></p>
+  <p>本文:<%= @blog.content %></p>
+  <p>※タイトルと本文は空で送信できません。記入画面に戻ります。</p>
+  <p><%= image_tag @blog.image %></p>
+  <%= form.submit "投稿する" %>
+  <%= form.submit "手直しする", name:'back' %>
+<% end %>
+ </div>
+</div>

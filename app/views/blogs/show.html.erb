@@ -1,11 +1,16 @@
-<h2>投稿記事</h2>
-<%= notice %>
-<h3>タイトル</h3>
-<%= @blog.title%><br>
-<h3>内容</h3>
-<%= @blog.content%><br>
-<h3>イメージ</h3>
-<%= image_tag @blog.image.url %><br>
+<div class="panel panel-default">
+  <div class="panel-heading">
+<h3 class="panel-title">投稿記事　<%= notice %></h3>
+  </div>
+<div class="panel-body">
 
-<%= link_to "編集する", edit_blog_path%><br>
-<%= link_to "一覧に戻る", blogs_path%>
+<h5>タイトル</h5>
+<h5><%= @blog.title%></h5><br>
+<h5>内容</h5>
+<h5><%= @blog.content%></h5><br>
+<h5>イメージ</h5>
+<%= image_tag @blog.image %><br>
+ </div>
+</div> 
+<h4><%= link_to "編集する", edit_blog_path%></h4>
+<h4><%= link_to "一覧に戻る", blogs_path%></h4>
