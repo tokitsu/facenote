@@ -14,6 +14,7 @@
 <%= form.submit "画像を削除する", name:'back' %><br>
 <% else %>
 <%= form.file_field:image %>
+<%= form.hidden_field :image_cache %>
 <% end %>
 <%= form.submit "投稿する" %><br>
 <% end %>

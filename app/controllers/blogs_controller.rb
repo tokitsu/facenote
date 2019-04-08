@@ -40,10 +40,9 @@ class BlogsController < ApplicationController
             @blog.remove_image!
             @blog.save
             render "edit"
-        elsif @blog.save
-            redirect_to blog_path(@blog.id),notice: "投稿を編集しました！！"
         else
-            render "edit"
+            @blog.save
+            redirect_to blog_path(@blog.id),notice: "投稿を編集しました！！"
         end
     end
     
