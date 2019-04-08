@@ -36,7 +36,11 @@ class BlogsController < ApplicationController
     
     def update
         @blog = Blog.find(params[:id])
-        if @blog.save
+        if params[:back]
+            @blog.remove_image!
+            @blog.save
+            render "edit"
+        elsif @blog.save
             redirect_to blog_path(@blog.id),notice: "投稿を編集しました！！"
         else
             render "edit"
@@ -50,7 +54,7 @@ class BlogsController < ApplicationController
     private
     
     def blog_params
-        params.require(:blog).permit(:title,:content,:image, :image_cache)
+        params.require(:blog).permit(:title,:content,:image, :image_cache, :remove_image)
     end
     
     

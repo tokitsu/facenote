@@ -8,8 +8,13 @@
 <%= form.text_field :title%><br>
 <%= form.label :内容%><br>
 <%= form.text_field :content%><br>
-<%= form.label :画像 %>
-<%= form.file_field:image_cache %>
+<%= form.label :画像 %><br>
+<% if @blog.image? %>
+<%= image_tag @blog.image %><br>
+<%= form.submit "画像を削除する", name:'back' %><br>
+<% else %>
+<%= form.file_field:image %>
+<% end %>
 <%= form.submit "投稿する" %><br>
 <% end %>
   </div>
