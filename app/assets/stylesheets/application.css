@@ -25,10 +25,15 @@ border-radius: 5px;
  }
  
  li{
-  float:left;
   margin-right: 20px;
   list-style: none;
   color: white;
+ }
+ .headername{
+  float:left;
+ }
+ .headerword{
+  float:right;
  }
  
  body{

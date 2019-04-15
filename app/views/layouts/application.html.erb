@@ -3,28 +3,28 @@
   <head>
     <title>SessionLogin</title>
     <%= csrf_meta_tags %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
     <wrapper>
-    <header>
-    <ul>
-    <li class="headername">FACENOTE</li>
-    <% if logged_in? %>
-    <li class="headerword"><%= link_to "プロフィールを見る", user_path(current_user.id) %></li>
-    <li class="headerword"><%= link_to "ログアウトする", session_path(current_user.id), method: :delete%></li>
-    <% else %>
-    <li class="headerword"><%= link_to "新規登録する", new_user_path%></li>
-    <li class="headerword"><%= link_to "ログインする", new_session_path%></li>
-    </ul>
-    <% end %>
-    </header>
-    <%= yield %>
+      <header>
+        <ul>
+          <li class="headername">FACENOTE</li>
+            <% if logged_in? %>
+              <li class="headerword"><%= link_to "プロフィール", user_path(current_user.id) %></li>
+              <li class="headerword"><%= link_to "ログアウトする", session_path(current_user.id), method: :delete%></li>
+            <% else %>
+              <li class="headerword"><%= link_to "新規登録する", new_user_path%></li>
+              <li class="headerword"><%= link_to "ログインする", new_session_path%></li>
+        
+            <% end %>
+        </ul>  
+      </header>
+      <%= yield %>
       <footer>
         <h18>FACENOTE.INC</h18>
       </footer>
-      </wrapper>
+    </wrapper>
   </body>
 </html>

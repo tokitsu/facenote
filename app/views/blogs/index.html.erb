@@ -1,31 +1,29 @@
 <ul>
-<li>投稿一覧</li>
-<li><%= current_user.name %>のページ</li><br>
+  <li>投稿一覧</li>
+  <li><%= current_user.name %>のページ</li><br>
 </ul>
-
 <h6>　　<%= notice %></h6>
-<div class="blog">
-<% @blogs.each do |blog|%>
 <tr>
+  <div class="blog">
+    <% @blogs.each do |blog|%>
     <div class="panel panel-default">
-    <div class="panel-heading">
-<td><h3 class="panel-title"><%= blog.user.name%>さんの投稿</h3></td>
+      <div class="panel-heading">
+        <td><h3 class="panel-title"><%= blog.user.name%>さんの投稿</h3></td>
+      </div>
+      <div class="panel-body">
+        <td>タイトル　　<%= blog.title %></td><br>
+        <td>内容　　　　<%= blog.content %></td><br>
+        <td><%= image_tag blog.image %></td><br>
+        <% if current_user.id == blog.user_id %>
+          <td><%= link_to "チェック",blog_path(blog.id)%></td>
+          <td><%= link_to "編集",edit_blog_path(blog.id) %></td>
+          <td><%= link_to "削除",blog_path(blog.id), method: :delete, data:{ confirm: '本当に削除していいですか？'}%></td><br>
+        <% else%>
+        <% end %>
+      </div>
     </div>
-    <div class="panel-body">
-<td>タイトル　　<%= blog.title %></td><br>
-<td>内容　　　　<%= blog.content %></td><br>
-<td><%= image_tag blog.image %></td><br>
-     <% if current_user.id == blog.user_id %>
-<td><%= link_to "チェック",blog_path(blog.id)%></td>
-<td><%= link_to "編集",edit_blog_path(blog.id) %></td>
-<td><%= link_to "削除",blog_path(blog.id), method: :delete, data:{ confirm: '本当に削除していいですか？'}%></td><br>
-
-     <% else%>
-     <% end %>
-     </div>
-     </div>
+    <% end %><br> 
+  </div>
 </tr>
-<% end %><br>
-</div>
 <h4><%= link_to "新しく投稿する", new_blog_path %></h4>
 <h4><%= link_to "ホームに戻る", user_path(current_user.id) %></h4>

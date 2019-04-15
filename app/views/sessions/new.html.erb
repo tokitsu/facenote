@@ -1,22 +1,17 @@
 <div class="panel panel-default">
-<div class="panel-heading">
-<h3>ログインしよう！！</h3></div>
-<div class="panel-body">
-<% flash.each do |key, value| %>
-   <%= content_tag(:div, value, class: "#{key}")%>
-<% end %>
-
-
-<%= form_with(scope: :session, url: sessions_path, local: true) do |f| %>
-
-<%= f.label :メールアドレス %><br>
-<%= f.email_field :email%><br>
-
-<%= f.label :パスワード %><br>
-<%= f.password_field:password%><br>
-
-<%= f.submit "ログイン！"%>
-
-<% end %>
-</div>
+  <div class="panel-heading">
+    <h3>ログインしよう！！</h3></div>
+    <div class="panel-body">
+      <% flash.each do |key, value| %>
+        <%= content_tag(:div, value, class: "#{key}")%>
+      <% end %>
+      <%= form_with(scope: :session, url: sessions_path, local: true) do |f| %>
+        <%= f.label :メールアドレス %><br>
+        <%= f.email_field :email%><br>
+        <%= f.label :パスワード %><br>
+        <%= f.password_field:password%><br>
+        <%= f.submit "ログイン！"%>
+      <% end %>
+    </div>
+  </div>
 </div>

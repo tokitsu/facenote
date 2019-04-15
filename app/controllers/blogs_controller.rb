@@ -21,7 +21,6 @@ class BlogsController < ApplicationController
     
     def show
         @blog = Blog.find(params[:id])
-
     end
     
     def destroy
@@ -38,10 +37,10 @@ class BlogsController < ApplicationController
         @blog = Blog.find(params[:id])
         if params[:back]
             @blog.remove_image!
-            @blog.save
+            @blog.update(blog_params)
             render "edit"
         else
-            @blog.save
+            @blog.update(blog_params)
             redirect_to blog_path(@blog.id),notice: "投稿を編集しました！！"
         end
     end
