@@ -10,8 +10,10 @@ class BlogsController < ApplicationController
     elsif  
       params[:back]
       render "new"
-    elsif @blog.save
+    elsif 
       @blog.user_id = current_user.id
+      @blog.save
+      
       redirect_to blog_path(@blog.id),notice: "記事を投稿しました！！"
     else
       render "new"
@@ -42,7 +44,7 @@ class BlogsController < ApplicationController
       @blog.remove_image!
       @blog.update(blog_params)
       render "edit"
-    else
+    else 
       @blog.update(blog_params)
       redirect_to blog_path(@blog.id),notice: "投稿を編集しました！！"
     end
