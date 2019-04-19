@@ -5,16 +5,12 @@ class BlogsController < ApplicationController
     
   def create
     @blog = Blog.new(blog_params)
-    if current_user == nil
-      redirect_to new_user_path  
-    elsif  
-      params[:back]
+    @blog.user_id = current_user.id
+    if params[:back]
       render "new"
     elsif 
-      @blog.user_id = current_user.id
       @blog.save
-      
-      redirect_to blog_path(@blog.id),notice: "記事を投稿しました！！"
+      redirect_to blogs_path(@blog.id),notice: "記事を投稿しました！！"
     else
       render "new"
     end
@@ -44,7 +40,7 @@ class BlogsController < ApplicationController
       @blog.remove_image!
       @blog.update(blog_params)
       render "edit"
-    else 
+    else
       @blog.update(blog_params)
       redirect_to blog_path(@blog.id),notice: "投稿を編集しました！！"
     end
@@ -52,6 +48,8 @@ class BlogsController < ApplicationController
     
   def confirm
     @blog = Blog.new(blog_params)
+    @blog.user_id = current_user.id
+    render "new" if @blog.invalid?
   end
     
   private
