@@ -1,6 +1,11 @@
 class BlogsController < ApplicationController
   def new
-    @blog = Blog.new
+    @current_user == current_user
+    if @current_user == nil
+      redirect_to new_user_path
+    elsif 
+      @blog = Blog.new
+    end
   end
     
   def create
