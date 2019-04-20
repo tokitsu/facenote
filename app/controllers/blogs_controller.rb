@@ -6,7 +6,10 @@ class BlogsController < ApplicationController
   def create
     @blog = Blog.new(blog_params)
     @blog.user_id = current_user.id
-    if params[:back]
+    @current_user == current_user
+    if @current_user == nil
+      redirect_to new_user_path
+    elsif  params[:back]
       render "new"
     elsif 
       @blog.save
@@ -36,7 +39,10 @@ class BlogsController < ApplicationController
     
   def update
     @blog = Blog.find(params[:id])
-    if params[:back]
+    @current_user == current_user
+    if current_user == nil
+      redirect_to new_user_path
+    elsif params[:back]
       @blog.remove_image!
       @blog.update(blog_params)
       render "edit"
