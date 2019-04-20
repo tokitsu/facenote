@@ -37,7 +37,7 @@ class BlogsController < ApplicationController
   def destroy
     @blog = Blog.find(params[:id])
     if @blog.user != current_user
-      redirect_to new_user_path
+      redirect_to new_session_path
     else
     @blog.destroy
     redirect_to blogs_path, notice: "投稿を削除しました！！"
@@ -54,7 +54,7 @@ class BlogsController < ApplicationController
     if current_user == nil
       redirect_to new_user_path
     elsif @blog.user != current_user
-      redirect_to new_user_path
+      redirect_to blogs_path
     elsif params[:back]
       @blog.remove_image!
       @blog.update(blog_params)
